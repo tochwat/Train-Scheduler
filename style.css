@@ -31,7 +31,7 @@ body {
 } */
 
 h1, h2, h3 {
-    color: #3a81b7;
+    color: #ffffff;
 }
 
 h1 {
@@ -124,7 +124,7 @@ footer {
 
 
 .jumbotron {
-    background-color: black;
+    background-color: #358d96;
     color: white;
     margin-bottom: .5vh;
     padding-bottom: 2vh;
