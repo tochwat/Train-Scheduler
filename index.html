@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Timesheet</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+	</script>
+
+	<!-- Bootstrap CDN-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="style.css" type="text/css" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+
+	</script>
+
+	<!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- Jumbotron for Title -->
+		<div class="jumbotron">
+			<h1 class="text-center">
+				<strong>
+              Train Scheduler</strong>
+            </h1>
+        <h2 class="text-center">
+          <strong>
+              Chuga Chuga!</strong>
+        </h2>
+    </div>
+          
+
+        <!-- This row will display current employee data -->
+        <div class="row">
+
+          <div class="col-sm-1"></div>
+
+          <div class="col-sm-10">
+            <br>
+            
+            <div class="card">
+              
+              <div class="card-header">
+                
+                <strong>
+                  Current Train Schedule</strong>
+                </div>
+                
+                <!-- This main card will hold each of the resulting articles -->
+                <div class="card-body" id="current-employees">
+                  <table class="table">
+                  <thead>
+                  <tr>
+                      <th scope="col">Employee Name</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Start Date</th>
+                      <th scope="col">Months Worked</th>
+                      <th scope="col">Monthly Rate ($)</th>
+                      <th scope="col">Total Billed ($)</th>
+
+                  </tr>
+                  
+              </thead>
+              <tbody>             
+                <!-- Dynamically filled from JS code -->
+              </tbody>
+              </table>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-sm-1"></div>
+
+        </div>
+
+
+        <!-- Row for Adding Employees -->
+        <div class="row">
+          
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-10">
+              <br>
+              <!-- First card is for handling the search parameters -->
+              <div class="card">
+                <div class="card-header">
+                  <strong>
+                    Add Train</strong>
+                  </div>
+                  <div class="card-body">
+                    
+                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <form role="form">
+                      
+                      <div class="form-group">
+                        <label for="name">Employee Name</label>
+                        <input type="text" class="form-control input-fields" id="name-input" placeholder="Jane Doe">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" class="form-control input-fields" id="role-input" placeholder="CEO">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="start-date">Start Date (MM/DD/YYYY)</label>
+                        <input type="text" class="form-control input-fields" id="start-date-input" placeholder="01/01/1999">
+                      </div>
+
+                      <div class="form-group">
+                            <label for="monthly-rate">Monthly Rate</label>
+                            <input type="text" class="form-control input-fields" id="monthly-rate-input" placeholder="$10,000">
+                          </div>
+    
+
+                      
+                      <!-- submit button -->
+                      <button type="submit" class="btn btn-primary float-right" id="submit"> Submit</button>
+                          
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                             
+                 <div class="col-sm-1"></div>
+
+        </div>
+                      
+      </div>
+
+
+    <!-- Used for Bootstrap -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

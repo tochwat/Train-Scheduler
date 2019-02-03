@@ -1,0 +1,140 @@
+html, body {
+    height: 100%;
+  }
+
+
+body {
+    margin: 0;
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+    text-align: center;
+    margin: 0 5%;
+
+}
+
+
+
+#info {
+    display: none;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    padding: 20px 25px;
+    box-shadow: 1px 2px 10px grey;
+    margin: 40px;
+}
+
+h1, h2, h3 {
+    color: #3a81b7;
+}
+
+h1 {
+    display: block;
+    font-size: 4em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    line-height: 1em;
+}
+
+.form-control {
+    width: 300px;
+    display: inline-block;
+}
+
+.btn {
+    margin: 5px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #3a81b7;
+    border-color: #3a81b7;
+}
+
+
+.col-sm-12 {
+    display: none;
+}
+
+.wrapper {
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    padding: 20px 25px;
+    box-shadow: 1px 2px 10px grey;
+    margin: 40px;
+}
+
+
+.row {
+    padding: 1vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#gifs-appear-here {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#gifs-appear-here > div {
+    flex: 1;
+}
+
+
+
+footer {
+    text-align: center;
+    background-color: #848484;
+    padding: 5px 0 1px 0;
+    color: white;
+    font-size: small;
+    /* margin-bottom: 0; */
+    border-top: 8px solid #3a81b7;
+    flex-shrink: 0;
+}
+
+
+
+.jumbotron {
+    background-color: black;
+    color: white;
+    margin-bottom: .5vh;
+    padding-bottom: 2vh;
+    padding-top: .5vh;
+  }
+  
+  .card-body a {
+    word-break: break-all;
+  }
+  
+  .article-headline {
+    line-height: 1.5;
+  }
