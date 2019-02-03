@@ -26,11 +26,10 @@ connectedRef.on('child_added', function (snap) {
     //looping over each item in the database to append to table body
     [
       snap.val().name,
-      snap.val().role,
-      snap.val().startDate, 
-      snap.val().monthsWorked, 
-      snap.val().monthlyRate,
-      snap.val().totalBilled
+      snap.val().destination,
+      snap.val().frequency, 
+      snap.val().nextArrival, 
+      snap.val().minutesAway,
     ].forEach(function (item){
       var $td = $('<td>');
       $tr.append(
@@ -47,29 +46,24 @@ var submit = function(event) {
   event.preventDefault();
   // Get inputs
   var name = $("#name-input").val().trim();
-  var role = $("#role-input").val().trim();
-  var startDate = $("#start-date-input").val().trim();
-  var monthlyRate = $("#monthly-rate-input").val().trim();
-  //var monthsWorked = $("#months-worked-input").val()trim();
-  //var totalBilled = $("#total-billed-input").val()trim();
+  var destination = $("#destination-input").val().trim();
+  var firstTrain = $("#first-train-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
+
 
   console.log({
       name: name,
-      role: role,
-      startDate: startDate,
-      monthlyRate: monthlyRate
-      //monthsWorked: monthsWorked,
-      //totalBilled: totalBilled
+      destination: destination,
+      frequency: frequency,
+      firstTrain: firstTrain
     })
 
   // Change what is saved in firebase
   connectedRef.push({
     name: name,
-    role: role,
-    startDate: startDate,
-    monthlyRate: monthlyRate
-    //monthsWorked: monthsWorked,
-    //totalBilled: totalBilled
+    destination: destination,
+    frequency: frequency,
+    firstTrain: firstTrain
   });
   $(".input-fields").val("")
 }
@@ -91,21 +85,19 @@ connectedRef.on("child_added", function (snapshot) {
 
   // Log everything that's coming out of snapshot
   console.log(snapshot.val().name);
-  console.log(snapshot.val().role);
-  console.log(snapshot.val().startDate);
-  console.log(snapshot.val().monthlyRate);
-  //console.log(snapshot.val().monthlyWorked);
-  //console.log(snapshot.val().totalBilled);
+  console.log(snapshot.val().destination);
+  console.log(snapshot.val().frequency);
+  console.log(snapshot.val().firstTrain);
 
   // dynamically create new table rows
 
   // Change the HTML to reflect
   $("#name-display").text(snapshot.val().name);
-  $("#role-display").text(snapshot.val().role);
-  $("#start-Date-display").text(snapshot.val().startDate);
-  $("#monthly-Rate-display").text(snapshot.val().monthlyRate);
-  //$("#months-Worked-display").text(snapshot.val().monthsWorked);
-  //$("#total-Billed-display").text(snapshot.val().totalBilled;
+  $("#destination-display").text(snapshot.val().destination);
+  $("#frequency-display").text(snapshot.val().frequency);
+  // $("#next-arrival-display").text(snapshot.val().nextArrival);
+  // $("#minutes-away-display").text(snapshot.val().minutesAway);
+  
   // Handle the errors
 }, function (errorObject) {
   console.log("Errors handled: " + errorObject.code);

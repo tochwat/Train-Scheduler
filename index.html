@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Timesheet</title>
+	<title>Train Scheduler</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -59,16 +59,15 @@
                 </div>
                 
                 <!-- This main card will hold each of the resulting articles -->
-                <div class="card-body" id="current-employees">
+                <div class="card-body" id="current-trains">
                   <table class="table">
                   <thead>
                   <tr>
-                      <th scope="col">Employee Name</th>
-                      <th scope="col">Role</th>
-                      <th scope="col">Start Date</th>
-                      <th scope="col">Months Worked</th>
-                      <th scope="col">Monthly Rate ($)</th>
-                      <th scope="col">Total Billed ($)</th>
+                      <th scope="col">Train Name</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Fequency (min)</th>
+                      <th scope="col">Next Arrival</th>
+                      <th scope="col">Minutes Away</th>
 
                   </tr>
                   
@@ -86,7 +85,7 @@
         </div>
 
 
-        <!-- Row for Adding Employees -->
+        <!-- Row for Adding Trains -->
         <div class="row">
           
             <div class="col-sm-1"></div>
@@ -101,27 +100,27 @@
                   </div>
                   <div class="card-body">
                     
-                    <!-- Here we create an HTML Form for handling the inputs-->
+                    <!-- HTML Form for handling the inputs-->
                     <form role="form">
                       
                       <div class="form-group">
-                        <label for="name">Employee Name</label>
-                        <input type="text" class="form-control input-fields" id="name-input" placeholder="Jane Doe">
+                        <label for="name">Train Name</label>
+                        <input type="text" class="form-control input-fields" id="name-input" placeholder="">
                       </div>
                       
                       <div class="form-group">
-                        <label for="role">Role</label>
-                        <input type="text" class="form-control input-fields" id="role-input" placeholder="CEO">
+                        <label for="role">Destination</label>
+                        <input type="text" class="form-control input-fields" id="destination-input" placeholder="">
                       </div>
                       
                       <div class="form-group">
-                        <label for="start-date">Start Date (MM/DD/YYYY)</label>
-                        <input type="text" class="form-control input-fields" id="start-date-input" placeholder="01/01/1999">
+                        <label for="start-date">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control input-fields" id="first-train-input" placeholder="">
                       </div>
 
                       <div class="form-group">
-                            <label for="monthly-rate">Monthly Rate</label>
-                            <input type="text" class="form-control input-fields" id="monthly-rate-input" placeholder="$10,000">
+                            <label for="monthly-rate">Frequency (min)</label>
+                            <input type="text" class="form-control input-fields" id="frequency-input" placeholder="">
                           </div>
     
 
