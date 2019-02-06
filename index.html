@@ -23,7 +23,7 @@
 
   </script>
   
-  <!-- Added Moment JS -->
+  <!-- Moment JS Reference -->
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -49,7 +49,7 @@
     </div>
           
 
-        <!-- This row will display current employee data -->
+        <!-- Row to display the current train schedule -->
         <div class="row">
 
           <div class="col-sm-1"></div>
@@ -65,7 +65,7 @@
                    Current Train Schedule</strong>
                 </div>
                 
-                <!-- This main card will hold each of the resulting articles -->
+                <!-- card to hold the table that will display each train schedule -->
                 <div class="card-body" id="current-trains">
                   <table class="table">
                   <thead>
@@ -80,7 +80,7 @@
                   
               </thead>
               <tbody>             
-                <!-- Dynamically filled from JS code -->
+                <!-- tbody to be filled with dynamic JS -->
               </tbody>
               </table>
                 </div>
@@ -92,14 +92,14 @@
         </div>
 
 
-        <!-- Row for Adding Trains -->
+        <!-- Row for adding new trains to the schedule -->
         <div class="row">
           
             <div class="col-sm-1"></div>
 
             <div class="col-sm-10">
               <br>
-              <!-- First card is for handling the search parameters -->
+              <!-- Card to contain the form for adding trains -->
               <div class="card">
                 <div class="card-header">
                   <strong> <i class="fas fa-plus-circle"></i>
@@ -107,27 +107,27 @@
                   </div>
                   <div class="card-body">
                     
-                    <!-- HTML Form for handling the inputs-->
+                    <!-- from to take in user inputs for new trains -->
                     <form role="form">
                       
                       <div class="form-group">
                         <label for="name">Train Name</label>
-                        <input type="text" class="form-control input-fields" id="name-input" placeholder="">
+                        <input type="text" class="form-control input-fields" id="name-input">
                       </div>
                       
                       <div class="form-group">
                         <label for="role">Destination</label>
-                        <input type="text" class="form-control input-fields" id="destination-input" placeholder="">
+                        <input type="text" class="form-control input-fields" id="destination-input">
                       </div>
                       
                       <div class="form-group">
                         <label for="start-date">First Train Time (HH:mm - military time)</label>
-                        <input type="text" class="form-control input-fields" id="first-train-input" placeholder="">
+                        <input type="text" class="form-control input-fields" id="first-train-input">
                       </div>
 
                       <div class="form-group">
                             <label for="monthly-rate">Frequency (min)</label>
-                            <input type="text" class="form-control input-fields" id="frequency-input" placeholder="">
+                            <input type="text" class="form-control input-fields" id="frequency-input">
                           </div>
     
 

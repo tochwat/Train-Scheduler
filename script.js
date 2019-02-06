@@ -1,4 +1,4 @@
-// Initialize Firebase using your config information
+// Initialize Firebase
 var config = {
   apiKey: "AIzaSyCjnh7Pyv97VRhbaSN4QY4vYiU-al2cXik",
   authDomain: "train-scheduler-d0cb5.firebaseapp.com",
@@ -10,20 +10,20 @@ var config = {
 
 firebase.initializeApp(config);
 
-// Create a variable to reference the database.
+// variable to reference the database
 var database = firebase.database();
 
-//create a variable to reference child object in database "trainSchedules"
+// variable to reference child object in database "trainSchedules"
 var connectedRef = database.ref("trainSchedules");
 
 
-// When the client's connection state changes...
+// Event handler for when client's connection state changes
 connectedRef.on('child_added', function (snap) {
-  // If they are connected..  
+  // If they are connected.. 
   if (snap.val()) {
-    //create new table rows with data
+    //create new table row with data
     var $tr = $('<tr>');
-    //looping over each item in the database to append to table body
+    //loop over each item in the database to append to the table body
     [
       snap.val().name,
       snap.val().destination,
@@ -42,9 +42,9 @@ connectedRef.on('child_added', function (snap) {
 });
 
 var submit = function(event) {
-    // Prevent the page from refreshing
+  // Prevent the page from refreshing
   event.preventDefault();
-  // Get inputs
+  // Get user inputs
   var name = $("#name-input").val().trim();
   var destination = $("#destination-input").val().trim();
   var firstTrain = $("#first-train-input").val().trim();
@@ -52,27 +52,27 @@ var submit = function(event) {
 
   //----------------------------------------Adding Moment.JS code to submit function----------------------------//
 
-  //First Time (pushed back 1 year to make sure it comes before current time)
+  //first time (1 year prior so it comes before the current time)
   var firstTrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
   console.log(firstTrainConverted);
 
-  // Current Time
+  // current Time
   var currentTime = moment();
   console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
-  // Difference between the times
+  // difference between the times
   var diffTime = moment().diff(moment(firstTrainConverted), "minutes");
   console.log("DIFFERENCE IN TIME: " + diffTime);
 
-  // Time apart (remainder)
+  // time apart (remainder)
   var tRemainder = diffTime % frequency;
   console.log(tRemainder);
 
-  // Minute Until Train
+  // minute until train
   var minutesAway = frequency - tRemainder;
   console.log("MINUTES TILL TRAIN: " + minutesAway);
 
-  // Next Train
+  // next train
   var nextTrain = moment().add(minutesAway, "minutes");
   console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
   var nextArrival = moment(nextTrain).format("hh:mm");
@@ -90,7 +90,7 @@ var submit = function(event) {
       minutesAway: minutesAway
     })
 
-  // Change what is saved in firebase
+  // adding data to firebase
   connectedRef.push({
     name: name,
     destination: destination,
@@ -102,22 +102,22 @@ var submit = function(event) {
   $(".input-fields").val("")
 }
 
-// capture Button Click
+// submit button click event listener
 $('#submit').on('click', function (event) {
  submit(event);
 });
 
-// Hitting enter will cause submission too
+// event listener for hitting enter key
   $('#submit').keyup(function (event) {
       if (event.keyCode === 13) {
         submit(event);
       }
   });
 
-// Firebase watcher + initial loader HINT: .on("value")
+// firebase watcher and initial loader 
 connectedRef.on("child_added", function (snapshot) {
 
-  // Log everything that's coming out of snapshot
+  // logging everything that's coming out of snapshot
   console.log(snapshot.val().name);
   console.log(snapshot.val().destination);
   console.log(snapshot.val().frequency);
@@ -127,14 +127,14 @@ connectedRef.on("child_added", function (snapshot) {
 
   // dynamically create new table rows
 
-  // Change the HTML to reflect
+  // change the HTML to reflect
   $("#name-display").text(snapshot.val().name);
   $("#destination-display").text(snapshot.val().destination);
   $("#frequency-display").text(snapshot.val().frequency);
   $("#next-arrival-display").text(snapshot.val().nextArrival);
   $("#minutes-away-display").text(snapshot.val().minutesAway);
 
-  // Handle the errors
+  // handle errors
 }, function (errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });
